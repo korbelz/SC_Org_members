@@ -14,7 +14,7 @@ print ("Org member URL example: https://robertsspaceindustries.com/orgs/AGBCORP/
 print ('***')
 input('Press ENTER to continue')
 
-#http://dataquestio.github.io/web-scraping-pages/ids_and_classes.html
+#Below are some example sites to test on.
 #https://robertsspaceindustries.com/orgs/SECPRO/members
 #https://robertsspaceindustries.com/orgs/AGBCORP/members
 org_site = input('Paste org member list page from RSI site: ')
@@ -24,17 +24,13 @@ print(r.url)
 
 soup = BeautifulSoup(r.content, "html.parser")
 
-#<span class="name-wrap">
-#soup.find_all(class_="name-wrap")
-
-
 table = soup.find_all(class_="name-wrap")
-print (table[2])  
 
 all_names = []
 for table in table: 
-    name = table.text
-    all_names.append(name)
+    name = table.text.strip()
+    name_clean = name.split('\n')
+    all_names.append(name_clean)
 print (all_names)
 
 
