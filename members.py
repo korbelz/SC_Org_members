@@ -31,7 +31,12 @@ for table in table:
     name = table.text.strip()
     name_clean = name.split('\n')
     all_names.append(name_clean)
-print (all_names)
 
+clean_names = list(filter(lambda x: len(x) > 1, all_names))
+#print (clean_names) #DO NOT DELETE THIS 
+
+for clean_names in clean_names:
+    print (f'Player name is: {clean_names[0]}')
+    print (f'https://robertsspaceindustries.com/citizens/{clean_names[1]}')
 
 
