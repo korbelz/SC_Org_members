@@ -3,7 +3,7 @@
 #Feedback: Discord: Korbelz#3504
 #current scope: Auto generates a org member list in .csv format
 
-import requests
+
 from bs4 import BeautifulSoup
 import scroll
 
@@ -20,14 +20,15 @@ input('Press ENTER to continue')
 #https://robertsspaceindustries.com/orgs/AGBCORP/members
 org_site = input('Paste org member list page from RSI site: ')
 
-#comment out these two lines, uncomment 3rd line to restore standalone
-pita = scroll.scroll(org_site)
-
-r = requests.get(pita)
+#testing differnt ways to pull page_source, uncomment 3rd line to restore standalone
+r = scroll.scroll(org_site)
+#print (r)
+#r = pita
 
 #r = requests.get(f'{org_site}')
 
-soup = BeautifulSoup(r.content, "html.parser")
+#soup = BeautifulSoup(r.content, "html.parser")
+soup = BeautifulSoup(r, "html.parser")
 
 table = soup.find_all(class_="name-wrap")
 
