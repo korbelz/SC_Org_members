@@ -6,7 +6,7 @@ import time
 def scroll(target_url):
     driver = webdriver.Chrome()
     driver.get(f'{target_url}')
-    #driver.page_source
+    driver.page_source
 
     SCROLL_PAUSE_TIME = 3
     time.sleep(SCROLL_PAUSE_TIME)
@@ -28,8 +28,9 @@ def scroll(target_url):
         last_height = new_height
         #pause to allow me to see what is loaded
         time.sleep(SCROLL_PAUSE_TIME)
-        pita = driver.page_source
-        return pita
+        #pita = driver.page_source
+        #return pita
+        return driver.page_source
 
 #print (scroll)
 

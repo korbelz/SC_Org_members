@@ -1,4 +1,4 @@
-#Using this file as a scratch pad to test ideasS
+#Using this file as a scratch pad to test ideas
 
 all_names = [['Carl Ramsey', 'Carl_Ramsey'], [''], ['Zaphod Hawke', 'Zaphod_Hawke'], ['KaynBot', 'KaynBot5297']]
 #print (all_names)
