@@ -6,6 +6,14 @@
 
 from bs4 import BeautifulSoup
 import scroll
+import csv
+
+file_name = "org_list" 
+
+with open(f'{file_name}.csv', 'w') as csv_file:
+    csv_writer = csv.writer(csv_file)
+
+    csv_writer.writerow(['Name ', 'Dossier Link '])
 
 print ('*** This app auto generates a org member list then prints it to a file ***')
 print ('*** Written by Korbelz, AGB Corp ***')
@@ -42,7 +50,11 @@ clean_names = list(filter(lambda x: len(x) > 1, all_names))
 #print (clean_names) #DO NOT DELETE THIS 
 
 for clean_names in clean_names:
-    print (f'Player name is: {clean_names[0]}')
-    print (f'https://robertsspaceindustries.com/citizens/{clean_names[1]}')
+    pname = (f'{clean_names[0]}')
+    plink = (f'https://robertsspaceindustries.com/citizens/{clean_names[1]}')
+    with open(f'{file_name}.csv', 'a') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow([f'{pname}  ', f'{plink} '])
 
-
+print ('Jobs done!, a new file called org list is ready to import to a spreadsheet')
+input('Press ENTER to exit')
