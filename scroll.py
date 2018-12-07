@@ -3,6 +3,10 @@
 from selenium import webdriver
 import time
 
+#Below are some example sites to test on.
+#https://robertsspaceindustries.com/orgs/SECPRO/members
+#https://robertsspaceindustries.com/orgs/AGBCORP/members
+
 def scroll(target_url):
     driver = webdriver.Chrome()
     driver.get(f'{target_url}')
@@ -32,6 +36,7 @@ def scroll(target_url):
         #return pita
         return driver.page_source
 
-#print (scroll)
+#pita = scroll('https://robertsspaceindustries.com/orgs/AGBCORP/members')
+#print (pita)
 
         

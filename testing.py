@@ -6,6 +6,8 @@
 import requests
 from bs4 import BeautifulSoup
 import scroll
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
 
 print ('*** This app auto generates a org member list then prints it to a file ***')
 print ('*** Written by Korbelz, AGB Corp ***')
@@ -20,12 +22,27 @@ input('Press ENTER to continue')
 #https://robertsspaceindustries.com/orgs/AGBCORP/members
 org_site = input('Paste org member list page from RSI site: ')
 
-#comment out these two lines, uncomment 3rd line to restore standalone
-pita = scroll.scroll(org_site)
+options = webdriver.ChromeOptions()
 
-r = requests.get(pita)
+options.add_argument('headless')
 
-#r = requests.get(f'{org_site}')
+driver = webdriver.Chrome(chrome_options=options)
+driver.get(f"{org_site}")
+#This code will scroll down to the end
+while True:
+    try:
+        # Action scroll down
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        break
+    except: 
+        pass
+
+#comment out these two lines, uncomment 3rd line to restore orginal
+#pita = scroll.scroll(org_site)
+
+#r = requests.get(pita)
+
+r = requests.get(f'{org_site}')
 
 soup = BeautifulSoup(r.content, "html.parser")
 
