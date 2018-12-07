@@ -5,6 +5,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import scroll
 
 print ('*** This app auto generates a org member list then prints it to a file ***')
 print ('*** Written by Korbelz, AGB Corp ***')
@@ -19,8 +20,12 @@ input('Press ENTER to continue')
 #https://robertsspaceindustries.com/orgs/AGBCORP/members
 org_site = input('Paste org member list page from RSI site: ')
 
-r = requests.get(f'{org_site}')
-print(r.url)
+#comment out these two lines, uncomment 3rd line to restore orginal
+pita = scroll.scroll(org_site)
+
+r = requests.get(pita)
+
+#r = requests.get(f'{org_site}')
 
 soup = BeautifulSoup(r.content, "html.parser")
 
