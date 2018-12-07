@@ -23,4 +23,6 @@ download this repo, then double click any of the files ending in .py to run it.
 ## members.py 
 
 File to run to generate the list.
+
+wiki has an example of the output: https://github.com/korbelz/SC_Org_members/wiki
  
