@@ -8,6 +8,8 @@ I'm a member of AGB corp https://robertsspaceindustries.com/orgs/AGBCORP
 
 download Python 3.7 here: https://www.python.org/
 
+help if you are getting selenium error: https://stackoverflow.com/questions/40555930/selenium-chromedriver-executable-needs-to-be-in-path
+
 download this repo, then double click any of the files ending in .py to run it.
 
 ## members.py 
