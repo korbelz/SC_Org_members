@@ -30,8 +30,6 @@ def scroll(target_url):
         if new_height == last_height:
             break
         last_height = new_height
-        #pause to allow me to see what is loaded
-        time.sleep(SCROLL_PAUSE_TIME)
         #pita = driver.page_source
         #return pita
         return driver.page_source
