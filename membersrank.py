@@ -24,49 +24,36 @@ print ('***')
 input('Press ENTER to continue')
 
 #Below are some example sites to test on.
-
 #https://robertsspaceindustries.com/orgs/AGBCORP/members
 org_site = input('Paste org member list page from RSI site: ')
 
-#testing differnt ways to pull page_source, uncomment 3rd line to restore standalone
+#testing differnt ways to pull page_source, uncomment 3rd/4th line to restore standalone
 r = scroll.scroll(org_site)
 
 #r = requests.get(f'{org_site}')
 #soup = BeautifulSoup(r.content, "html.parser")
-
 soup = BeautifulSoup(r, "html.parser")
-'''
-def has_six_characters(css_class):
-    return css_class is 'name-wrap' or 'rank'
-'''
 
 table = soup.find_all(class_="trans-03s frontinfo")
-#table = soup.find_all(class_="rank")
-#table = soup.find_all(class_="name-wrap")
-# and list need to add these two together somehow
-#table = soup.find_all(class_=["name-wrap", "rank"])
-#table = soup.find_all(class_=["trans-03s name", "rank"])
-#table = soup.find_all(class_=has_six_characters)
 #print (table)
 
 all_names = []
-for table in table: 
-    name = table.text.strip()
-    #name_strip = name.strip('\n')
-    name_clean = name.split('\n')
-    all_names.append(name_clean)
+for table in table:
+    name = table.select_one("span.name")
+    nick = table.select_one("span.nick")
+    rank = table.select_one("span.rank")
+    all_names.append([name, nick, rank])
+#print (all_names[1][2].text)
 
 #clean_names = list(filter(lambda x: len(x) > 1, all_names))
-clean_names = list(filter(None, all_names))
-print (clean_names) #DO NOT DELETE THIS 
+#clean_names = list(filter(None, all_names))
+#print (clean_names) #DO NOT DELETE THIS 
 
-'''
 for clean_names in clean_names:
-    print = (f'game name: {clean_names[0]}')
-    #print = (f'link name: {clean_names[1]}')
-    #print = (f'rank: {clean_names[2]}')
-'''
-
+    print (f'game name: {clean_names[0].text}')
+    print (f'link name: {clean_names[1].text}')
+    print (f'rank: {clean_names[2].text}')
+    
 
 #print ('Jobs done!, a new file called org list rank is ready to import to a spreadsheet')
 #input('Press ENTER to exit')
