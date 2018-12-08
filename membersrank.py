@@ -9,12 +9,12 @@ import scroll
 import csv
 
 file_name = "org_list_rank" 
-'''
+
 with open(f'{file_name}.csv', 'w') as csv_file:
     csv_writer = csv.writer(csv_file)
 
-    csv_writer.writerow(['Name ', 'Dossier Link '])
-'''
+    csv_writer.writerow(['Rank ', 'Name ', 'Dossier Link '])
+
 print ('*** This app auto generates a org member list then prints it to a file ***')
 print ('*** Written by Korbelz, AGB Corp ***')
 print ('*** Feedback/Bugs: Discord: Korbelz#3504 ***')
@@ -50,12 +50,14 @@ clean_names = list(filter(None, all_names))
 #print (clean_names) #DO NOT DELETE THIS 
 
 for clean_names in clean_names:
-    print (f'game name: {clean_names[0].text}')
-    print (f'link name: {clean_names[1].text}')
+    pname = (f'{clean_names[0].text}')
+    plink = (f'https://robertsspaceindustries.com/citizens/{clean_names[1].text}')
     if clean_names[2] is not None:
-        print (f'rank: {clean_names[2].text}')
+        prank = (f'{clean_names[2].text}')
+    with open(f'{file_name}.csv', 'a') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow([f'{prank}  ', f'{pname} ', f'{plink} '])
     
-        
 
-#print ('Jobs done!, a new file called org list rank is ready to import to a spreadsheet')
-#input('Press ENTER to exit')
+print ('Jobs done!, a new file called org list rank is ready to import to a spreadsheet')
+input('Press ENTER to exit')
