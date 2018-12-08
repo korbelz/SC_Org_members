@@ -24,8 +24,7 @@ print ('***')
 input('Press ENTER to continue')
 
 #Below are some example sites to test on.
-#https://robertsspaceindustries.com/orgs/ISLINC/members
-#https://robertsspaceindustries.com/orgs/SECPRO/members
+
 #https://robertsspaceindustries.com/orgs/AGBCORP/members
 org_site = input('Paste org member list page from RSI site: ')
 
