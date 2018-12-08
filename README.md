@@ -20,9 +20,13 @@ help if you are getting selenium error: https://stackoverflow.com/questions/4055
 
 download this repo, then double click any of the files ending in .py to run it.
 
+## membersrank.py
+
+MUCH better verison of members.py also includes peoples rank to make it easier to filter out long lists
+
 ## members.py 
 
-File to run to generate the list.
+verison 1.0 I wouldn't use this it kind of sucks.
 
 wiki has an example of the output: https://github.com/korbelz/SC_Org_members/wiki
  
