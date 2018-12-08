@@ -46,14 +46,16 @@ for table in table:
 #print (all_names[1][2].text)
 
 #clean_names = list(filter(lambda x: len(x) > 1, all_names))
-#clean_names = list(filter(None, all_names))
+clean_names = list(filter(None, all_names))
 #print (clean_names) #DO NOT DELETE THIS 
 
 for clean_names in clean_names:
     print (f'game name: {clean_names[0].text}')
     print (f'link name: {clean_names[1].text}')
-    print (f'rank: {clean_names[2].text}')
+    if clean_names[2] is not None:
+        print (f'rank: {clean_names[2].text}')
     
+        
 
 #print ('Jobs done!, a new file called org list rank is ready to import to a spreadsheet')
 #input('Press ENTER to exit')
