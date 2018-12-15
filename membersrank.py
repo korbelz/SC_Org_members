@@ -7,8 +7,9 @@
 from bs4 import BeautifulSoup
 import scroll
 import csv
+import datetime
 
-file_name = "org_list_rank" 
+file_name = datetime.datetime.now( datetime.timezone.utc).strftime("%Y-%m-%d") 
 
 with open(f'{file_name}.csv', 'w') as csv_file:
     csv_writer = csv.writer(csv_file)
@@ -59,5 +60,5 @@ for clean_names in clean_names:
         csv_writer.writerow([f'{prank}  ', f'{pname} ', f'{plink} '])
     
 
-print ('Jobs done!, a new file called org list rank is ready to import to a spreadsheet')
+print (f'Jobs done!, a new file called {file_name} is ready to import to a spreadsheet')
 input('Press ENTER to exit')
